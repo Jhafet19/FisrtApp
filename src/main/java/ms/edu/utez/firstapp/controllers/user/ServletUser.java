@@ -5,8 +5,11 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import ms.edu.utez.firstapp.models.user.DaoUser;
+import ms.edu.utez.firstapp.models.user.User;
 
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet(name = "users",urlPatterns = {
         "/user/users",
@@ -23,7 +26,19 @@ public class ServletUser extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+    req.setCharacterEncoding("UTF-8");
+    action=req.getServletPath();
+    //el metodo manda traer la ultima lineas del URL
+        switch (action){
+            case"/user/users":
+                List<User> users = new DaoUser().findAll();
+                req.setAttribute("users",users);
+                redirect = "/views/user/index.jsp";
+                break;
+            default:
+                System.out.println(action);
+        }
+        req.getRequestDispatcher(redirect).forward(req,resp);
     }
 
     @Override

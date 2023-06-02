@@ -12,22 +12,22 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class DaoUser implements DaoRepository<user> {
+public class DaoUser implements DaoRepository<User> {
 
     private Connection conn;
     private PreparedStatement pstm;
     private ResultSet rs;
 
     @Override
-    public List<user> findAll() {
-        List<user> users =new ArrayList<>();
+    public List<User> findAll() {
+        List<User> users =new ArrayList<>();
         try{
             conn= new MySQLConnection().connect();
             String query ="SELECT * FROM users;";
             pstm = conn.prepareStatement(query);
             rs= pstm.executeQuery();
             while(rs.next()){
-                user user=new user();
+                User user=new User();
                 user.setId(rs.getLong("id"));
                 user.setName(rs.getString("name"));
                 user.setSurname(rs.getString("surname"));
@@ -52,17 +52,17 @@ public class DaoUser implements DaoRepository<user> {
     }
 
     @Override
-    public user findOne(Long id) {
+    public User findOne(Long id) {
         return null;
     }
 
     @Override
-    public boolean save(user object) {
+    public boolean save(User object) {
         return false;
     }
 
     @Override
-    public boolean update(user object) {
+    public boolean update(User object) {
         return false;
     }
 

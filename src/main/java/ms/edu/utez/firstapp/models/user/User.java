@@ -1,6 +1,6 @@
 package ms.edu.utez.firstapp.models.user;
 
-public class user {
+public class User {
     private long id;
     private String name;
     private String surname;
@@ -9,11 +9,11 @@ public class user {
     private String username;
     private String status;
 
-    public user() {
+    public User() {
 
     }
 
-    public user(long id, String name, String surname, String lastname, String birthaday, String username, String status) {
+    public User(long id, String name, String surname, String lastname, String birthaday, String username, String status) {
         this.id = id;
         this.name = name;
         this.surname = surname;
