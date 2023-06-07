@@ -18,7 +18,7 @@ import java.util.List;
         "/user/users",
         "/user/user",
         "/user/user-view",
-        "/user/save,",
+        "/user/save",
         "/user/user-view-update",
         "/user/update",
         "/user/delate"
