@@ -32,7 +32,7 @@ public class DaoUser implements DaoRepository<User> {
                 user.setName(rs.getString("name"));
                 user.setSurname(rs.getString("surname"));
                 user.setLastname(rs.getString("lastname"));
-                user.setBirthaday(rs.getString("birthanday"));
+                user.setBirthaday(rs.getString("birthday"));
                 user.setStatus(rs.getString("status"));
                 user.setUsername(rs.getString("username"));
                 users.add(user);
@@ -65,7 +65,7 @@ public class DaoUser implements DaoRepository<User> {
                 user.setName(rs.getString("name"));
                 user.setSurname(rs.getString("surname"));
                 user.setLastname(rs.getString("lastname"));
-                user.setBirthaday(rs.getString("birthanday"));
+                user.setBirthaday(rs.getString("birthday"));
                 user.setStatus(rs.getString("status"));
                 user.setUsername(rs.getString("username"));
             }
@@ -95,7 +95,7 @@ public class DaoUser implements DaoRepository<User> {
             pstm.setString(6,object.getStatus());
             return  pstm.executeUpdate()>0;
         }catch(SQLException e){
-        Logger.getLogger(DaoUser.class.getName()).log(Level.SEVERE,"Errps save"+ e.getMessage());
+        Logger.getLogger(DaoUser.class.getName()).log(Level.SEVERE,"Error save"+ e.getMessage());
         }finally {
             close();
         }
@@ -118,7 +118,7 @@ public class DaoUser implements DaoRepository<User> {
             pstm.setLong(7,object.getId());
             return  pstm.executeUpdate()>0;
         }catch(SQLException e){
-            Logger.getLogger(DaoUser.class.getName()).log(Level.SEVERE,"Errps save"+ e.getMessage());
+            Logger.getLogger(DaoUser.class.getName()).log(Level.SEVERE,"Error save"+ e.getMessage());
         }finally {
             close();
         }

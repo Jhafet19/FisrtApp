@@ -58,7 +58,7 @@ public class ServletUser extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
         resp.setCharacterEncoding("UTF-8");
         resp.setContentType("text/html");
-        action= req.getServletPath();
+        action = req.getServletPath();
         switch (action){
             case"/user/user-view-update":
                 String id =req.getParameter("id");
@@ -76,9 +76,8 @@ public class ServletUser extends HttpServlet {
                 lastname = req.getParameter("lastname");
                 username = req.getParameter("username");
                 birthday = req.getParameter("birthday");
-                status = req.getParameter("status");
 
-                User user1=new User(0,name,surname,lastname,birthday,username,status);
+                User user1=new User(0,name,surname,lastname,birthday,username,"ACTIVO");
                 boolean result= new DaoUser().save(user1);
                 if (result){
                     redirect="/user/users?result="+result+"&message="+ URLEncoder.encode
@@ -89,5 +88,6 @@ public class ServletUser extends HttpServlet {
                 }
                 break;
         }
+        resp.sendRedirect(req.getContextPath()+redirect);
     }
 }

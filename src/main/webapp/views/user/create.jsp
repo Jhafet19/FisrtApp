@@ -18,9 +18,9 @@
     <div class="row">
         <div class="col">
             <div class="card mt-5">
-                <div class="card-header">Registrode usuario</div>
+                <div class="card-header">Registro de usuario</div>
                 <div class="card-body">
-                    <form class="needs-validation" novalidate
+                    <form id="user-form" class="needs-validation" novalidate
                          action="/user/save" method="post">
                             <div class="form-group mb-3">
                                 <div class="row">
@@ -45,12 +45,12 @@
                              <div class="form-group mb-3">
                             <div class="row">
                                 <div class="col">
-                                    <label for="birthday" class="fw-bold">Segundo Apellido: </label>
+                                    <label for="birthday" class="fw-bold">Cumpleaños: </label>
                                     <input type="date" name="birthday" id="birthday" class="form-control" required>
                                     <div class="invalid-feedback">Campo obligatorio</div>
                                 </div>
                                 <div class="col">
-                                    <label for="username" class="fw-bold">Segundo Apellido: </label>
+                                    <label for="username" class="fw-bold">Username: </label>
                                     <input type="text" name="username" id="username" class="form-control" required>
                                     <div class="invalid-feedback">Campo obligatorio</div>
                                 </div>
@@ -59,7 +59,7 @@
                         <div class="form-group mb-3">
                             <div class="row">
                                 <div class="col text-end">
-                                    <a href="user/users" class="btn btn-outline-danger btn-sm">
+                                    <a href="/user/users" class="btn btn-outline-danger btn-sm">
                                         CANCELAR
                                     </a>
                                     <button type="submit" class="btn btn-outline-success btn-sm">
