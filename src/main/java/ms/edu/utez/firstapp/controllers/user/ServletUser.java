@@ -27,7 +27,7 @@ import java.util.List;
 public class ServletUser extends HttpServlet {
     private  String action;
     private String redirect = "/user/users";
-    private  String name,surname,lastname,username,birthday,status;
+    private  String id,name,surname,lastname,username,birthday,status;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -45,7 +45,16 @@ public class ServletUser extends HttpServlet {
                 redirect= "/views/user/create.jsp";
                 break;
             case"/user/user-view-update":
-
+                id = req.getParameter("id");
+             User user3 = new DaoUser().findOne(id!= null ? Long.parseLong(id): 0);
+                if(user3 !=null){
+                    req.setAttribute("user",user3);
+                    redirect="/views/user/update.jsp";
+                }
+                else{
+                    redirect = "/user/users?result"+false+"&message="+URLEncoder.encode("Recurso no encontrado",StandardCharsets.UTF_8);
+                }
+                break;
             default:
                 System.out.println(action);
 

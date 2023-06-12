@@ -42,7 +42,7 @@
                                         <c:out value="${user.name}"/><c:out value="${user.surname}"/><c:out value="${user.lastname}"/>
                                     </td>
                                     <td>
-                                        <c:out value="${user.birthday}"/>
+                                        <c:out value="${user.birthaday}"/>
                                     </td>
                                     <td>
                                         <c:out value="${user.username}"/>
@@ -51,6 +51,12 @@
                                         <c:out value="${user.status}"/>
                                     </td>
                                     <td>
+                                        <form METHOD="get" ACTION="/user/user-view-update">
+                                            <input hidden value="${user.id}" name="id">
+                                            <button type="submit" class="btn btn-outline-warning btn-sm">
+                                                EDITAR
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                             </c:forEach>
