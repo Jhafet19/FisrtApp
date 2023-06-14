@@ -57,6 +57,12 @@
                                                 EDITAR
                                             </button>
                                         </form>
+                                        <form METHOD="POST" ACTION="/user/delete">
+                                            <input hidden value="${user.id}" name="id">
+                                            <button type="submit" class="btn btn-outline-danger btn-sm">
+                                                ELIMINAR
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                             </c:forEach>

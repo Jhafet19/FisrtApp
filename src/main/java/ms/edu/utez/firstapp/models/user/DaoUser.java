@@ -106,7 +106,7 @@ public class DaoUser implements DaoRepository<User> {
     public boolean update(User object) {
         try{
             conn=new MySQLConnection().connect();
-            String query = "UPDATE  users SET name = ?,surname=?, lastname=?, username=?,birthday=?, " +
+            String query = "UPDATE users SET name = ?,surname=?, lastname=?, username=?,birthday=?, " +
                     "status=? where id=?";
             pstm=conn.prepareStatement(query);
             pstm.setString(1,object.getName());
@@ -131,7 +131,7 @@ public class DaoUser implements DaoRepository<User> {
     public boolean delate(Long id) {
         try{
             conn=new MySQLConnection().connect();
-            String query="DELETE users WHERE id = ?";
+            String query="DELETE FROM users WHERE id = ?";
             pstm = conn.prepareStatement(query);
             pstm.setLong(1,id);
             return pstm.executeUpdate() ==1;

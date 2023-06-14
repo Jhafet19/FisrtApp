@@ -21,6 +21,7 @@
                     <form id="user-form" class="needs-validation" novalidate
                           action="/user/update" method="post">
                         <input hidden="${user.id}"name="id">
+                        <input hidden value="${user.status}" name="status">
                         <div class="form-group mb-3">
                             <div class="row">
                                 <div class="col">
